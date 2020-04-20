@@ -15,6 +15,7 @@
     "jsx-loader": "^0.13.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "socket.io": "0.9.x",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0"
   },
