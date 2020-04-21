@@ -1,22 +1,15 @@
-// server.js
+const io              = require('socket.io');
+const express         = require('express');
+const http            = require('http');
+const app             = express();
+const server          = http.createServer(app);
 
-// init project
-const
-        io              = require('socket.io'),
-        express         = require('express'),
-        http            = require('http'),
-        app             = express(),
-        server          = http.createServer(app);
-
-// http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
-// http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function(request, response) {
   response.sendFile(__dirname + '/app/index.html');
 });
 
-// listen for requests :)
 server.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + server.address().port);
 });
@@ -39,12 +32,8 @@ let nConnections = 0;
         client.emit('onconnected', { id: client.userid} );
       console.log('new connection', client.userid, nConnections, 'total');
       
-            //Now we want to handle some of the messages that clients will send.
-            //They send messages here, and we send them to the game_server to handle.
-        client.on('message', function(m) {
-
-            // game_server.onMessage(client, m);
-
+        client.on('chat message', function(msg) {
+            sio.emit('chat message', msg);
         }); //client.on message
 
             //When this client disconnects, we want to tell the game server
