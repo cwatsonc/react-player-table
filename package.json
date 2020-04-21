@@ -4,7 +4,7 @@
   "//3": "updating this file will download and update your packages",
   "name": "starter-react",
   "version": "0.0.1",
-  "description": "A small scaffold to get you started using React with Webpack",
+  "description": "Socket.IO Chat in React",
   "main": "server.js",
   "scripts": {
     "build": "webpack",
@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "jsx-loader": "^0.13.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.1",
     "socket.io": "2.3.x",
@@ -29,7 +28,10 @@
   "keywords": [
     "node",
     "glitch",
-    "express"
+    "express",
+    "socket.io",
+    "chat",
+    "react"
   ],
   "devDependencies": {
     "@babel/core": "^7.9.0",

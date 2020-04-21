@@ -1,10 +1,7 @@
-Need more power?  
-[Boost your Glitch apps for improved performance!](https://glitch.com/boost)  
-------------
-***
-
 Starter React App on Glitch
 ===========================
+
+Based on [starter-react](https://glitch.com/~starter-react)
 
 This app is a very small scaffold to get you started using React and Webpack.
 
