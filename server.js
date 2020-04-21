@@ -18,11 +18,10 @@ app.get("/", function(request, response) {
 
 // listen for requests :)
 server.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+  console.log('Your app is listening on port ' + server.address().port);
 });
 
     var sio = io.listen(server);
-console.log('sio', sio);;;
 
         //Configure the socket.io connection settings.
         //See http://socket.io/
