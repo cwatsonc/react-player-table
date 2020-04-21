@@ -1,15 +1,21 @@
 const React = require('react');
-const {useEffect} = React;
+const {useEffect, useState} = React;
 
 /* the main page for the index route of this app */
 const HelloWorld = function() {
+  const [id, setId] = useState('<nimic>');
+  
   useEffect(() => {
-    let socket;/// = window.io.connect();
-    console.log(socket);;;
+    let socket = window.io.connect();
+    socket.on('onconnected', data => {
+      console.log('ononnected', data);;;
+      setId(data.id);
+    })
   });
+  
   return (
     <div>
-      Hi {useEffect ? 'yesefg' : 'no'} there
+      I am {id}.
     </div>
   );
 }
