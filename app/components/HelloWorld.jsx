@@ -6,12 +6,13 @@ const HelloWorld = function() {
   const [id, setId] = useState('<nimic>');
   
   useEffect(() => {
-    let socket = window.io.connect();
+    console.log('useeffect');;;
+    let socket = window.io();
     socket.on('onconnected', data => {
       console.log('ononnected', data);;;
       setId(data.id);
     })
-  });
+  }, []);
   
   return (
     <div>
