@@ -21,6 +21,10 @@ server.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + server.address().port);
 });
 
+
+let nextId = 0;
+let nConnections = 0;
+
     var sio = io.listen(server);
 
         //Configure the socket.io connection settings.
@@ -42,7 +46,10 @@ server.listen(process.env.PORT, function () {
         //maintain the list if players.
     sio.sockets.on('connection', function (client) {
             //tell the player they connected, giving them their id
-        client.emit('onconnected', { id: client.userid } );
+      client.userid = nextId++;
+      ++nConnections;
+        client.emit('onconnected', { id: client.userid} );
+      console.log('new connection', client.userid, nConnections, 'total');
       
             //Now we want to handle some of the messages that clients will send.
             //They send messages here, and we send them to the game_server to handle.
@@ -58,7 +65,9 @@ server.listen(process.env.PORT, function () {
         client.on('disconnect', function () {
 
                 //Useful to know when soomeone disconnects
-            console.log('\t socket.io:: client disconnected ' + client.userid + ' ' + client.game_id);
+            console.log('\t socket.io:: client disconnected', client.userid);
+          --nConnections;
+          console.log(nConnections, 'total');
             
         }); //client.on disconnect
      
