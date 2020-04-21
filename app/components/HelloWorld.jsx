@@ -1,10 +1,10 @@
-import React, { useEffect }'react');
+const React = require('react');
 
 /* the main page for the index route of this app */
 const HelloWorld = function() {
   return (
     <div>
-      Hi {window.io} there
+      Hi {window.io ? 'yes' : 'no'} there
     </div>
   );
 }
