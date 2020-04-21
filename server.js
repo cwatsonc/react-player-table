@@ -25,26 +25,14 @@ server.listen(process.env.PORT, function () {
 let nextId = 0;
 let nConnections = 0;
 
-    var sio = io.listen(server);
-
-        //Configure the socket.io connection settings.
-        //See http://socket.io/
-    sio.configure(function (){
-
-        sio.set('log level', 0);
-
-        sio.set('authorization', function (handshakeData, callback) {
-          callback(null, true); // error first callback style
-        });
-
-    });
+    var sio = io(server);
 
 
         //Socket.io will call this function when a client connects,
         //So we can send that client looking for a game to play,
         //as well as give that client a unique ID to use so we can
         //maintain the list if players.
-    sio.sockets.on('connection', function (client) {
+    sio.on('connection', function (client) {
             //tell the player they connected, giving them their id
       client.userid = nextId++;
       ++nConnections;
