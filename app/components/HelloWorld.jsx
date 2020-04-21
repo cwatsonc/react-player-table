@@ -20,6 +20,11 @@ const HelloWorld = function() {
     });
   }, []);
 
+  function onSubmit(e) {
+    e.preventDefault();
+    console.log(input);;;
+    setInput('');
+  }
   return (
     <>
       <ul id="messages">
@@ -28,7 +33,7 @@ const HelloWorld = function() {
         ))}
       </ul>
       <form onSubmit={onSubmit}>
-        <input id="m" autoComplete="off" />
+        <input autoComplete="off" value={input} onChange={e => {setInput(e.target.value)}} />
         <button>Send</button>
       </form>
     </>
