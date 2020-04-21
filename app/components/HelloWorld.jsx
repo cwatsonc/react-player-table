@@ -1,5 +1,6 @@
-const React = require('react');
-const {useEffect, useState} = React;
+// const React = require('react');
+// const {useEffect, useState} = React;
+import React, {useEffect, useState} from 'react';
 
 /* the main page for the index route of this app */
 const HelloWorld = function() {
@@ -15,14 +16,17 @@ const HelloWorld = function() {
   }, []);
   
   return (
-    <React.Fragment>
-      <ul></ul>
+    <>
+      <ul>
+      <li>lorem</li>
+      </ul>
       <form action="">
-        <input id="m'" autocomplete="off" />
-        <button>Send</button>
+        <input id="m'" autoComplete="off" />
+        <button>Sendxt</button>
       </form>
-    </React.Fragment>
+    </>
   );
 }
 
-module.exports = HelloWorld;
+// module.exports = HelloWorld;
+export default HelloWorld;
